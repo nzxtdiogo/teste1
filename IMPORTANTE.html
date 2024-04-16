@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página de Pergunta</title>
+<style>
+    body {
+        background-color: black; /* Fundo preto */
+        color: white; /* Texto branco */
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 50px;
+    }
+    #nao:hover {
+        position: relative;
+        top: -30px; /* Mudança maior na posição */
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <h1>Você gostaria de assistir um vídeo?</h1>
+    <button id="sim">SIM</button>
+    <button id="nao">NÃO</button>
+
+    <script>
+        // JavaScript para mover o botão "NÃO" quando o cursor está em cima dele
+        document.getElementById("nao").addEventListener("mouseover", function() {
+            this.style.position = "relative";
+            this.style.top = "-30px"; // Mudança maior na posição
+        });
+
+        // Quando o cursor sai do botão "NÃO", move-o para uma posição aleatória
+        document.getElementById("nao").addEventListener("mouseout", function() {
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+            var randomX = Math.floor(Math.random() * screenWidth);
+            var randomY = Math.floor(Math.random() * screenHeight);
+            this.style.position = "absolute";
+            this.style.left = randomX + "px";
+            this.style.top = randomY + "px";
+        });
+
+        // JavaScript para exibir popup ao clicar no botão "SIM"
+        document.getElementById("sim").addEventListener("click", function() {
+            alert("Aqui está a sua pop-up!");
+        });
+    </script>
+</body>
+</html>
